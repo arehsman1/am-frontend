@@ -1,0 +1,136 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Matchmaking platform design system. All colors HSL. */
+
+@layer base {
+  :root {
+    --background: 0 0% 100%;
+    --foreground: 0 0% 13%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 0 0% 13%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 0 0% 13%;
+
+    /* Deep blue #1E3A5F */
+    --primary: 213 52% 25%;
+    --primary-foreground: 0 0% 100%;
+
+    /* Bright blue #4A90E2 */
+    --accent: 211 72% 59%;
+    --accent-foreground: 0 0% 100%;
+
+    --secondary: 0 0% 96%;
+    --secondary-foreground: 213 52% 25%;
+
+    --muted: 0 0% 96%;
+    --muted-foreground: 0 0% 40%;
+
+    --destructive: 0 75% 55%;
+    --destructive-foreground: 0 0% 100%;
+
+    --success: 145 63% 42%;
+    --success-foreground: 0 0% 100%;
+
+    --warning: 38 92% 50%;
+    --warning-foreground: 0 0% 100%;
+
+    --border: 0 0% 90%;
+    --input: 0 0% 90%;
+    --ring: 211 72% 59%;
+
+    --radius: 0.875rem;
+
+    /* Brand gradients & shadows */
+    --gradient-primary: linear-gradient(135deg, hsl(213 52% 25%) 0%, hsl(211 72% 45%) 100%);
+    --gradient-accent: linear-gradient(135deg, hsl(211 72% 59%) 0%, hsl(213 52% 35%) 100%);
+    --gradient-hero: linear-gradient(135deg, hsl(213 52% 25%) 0%, hsl(213 52% 18%) 50%, hsl(211 72% 35%) 100%);
+    --gradient-soft: linear-gradient(180deg, hsl(0 0% 100%) 0%, hsl(210 40% 98%) 100%);
+    --gradient-boost: linear-gradient(90deg, hsl(211 72% 59%) 0%, hsl(280 70% 60%) 50%, hsl(330 80% 60%) 100%);
+
+    --shadow-sm: 0 1px 2px hsl(213 52% 25% / 0.04);
+    --shadow-md: 0 4px 16px -2px hsl(213 52% 25% / 0.08);
+    --shadow-lg: 0 12px 32px -8px hsl(213 52% 25% / 0.15);
+    --shadow-glow: 0 0 40px hsl(211 72% 59% / 0.25);
+    --shadow-card: 0 2px 8px hsl(213 52% 25% / 0.06);
+
+    --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+
+    --sidebar-background: 0 0% 100%;
+    --sidebar-foreground: 0 0% 13%;
+    --sidebar-primary: 213 52% 25%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 0 0% 96%;
+    --sidebar-accent-foreground: 213 52% 25%;
+    --sidebar-border: 0 0% 90%;
+    --sidebar-ring: 211 72% 59%;
+  }
+
+  .dark {
+    --background: 213 40% 8%;
+    --foreground: 0 0% 98%;
+    --card: 213 40% 11%;
+    --card-foreground: 0 0% 98%;
+    --popover: 213 40% 11%;
+    --popover-foreground: 0 0% 98%;
+    --primary: 211 72% 59%;
+    --primary-foreground: 213 52% 12%;
+    --accent: 211 72% 59%;
+    --accent-foreground: 0 0% 100%;
+    --secondary: 213 30% 16%;
+    --secondary-foreground: 0 0% 98%;
+    --muted: 213 30% 16%;
+    --muted-foreground: 215 20% 65%;
+    --destructive: 0 62% 45%;
+    --destructive-foreground: 0 0% 100%;
+    --border: 213 30% 18%;
+    --input: 213 30% 18%;
+    --ring: 211 72% 59%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground antialiased;
+    font-feature-settings: "cv11", "ss01";
+  }
+  h1, h2, h3, h4 {
+    @apply tracking-tight;
+  }
+}
+
+@layer components {
+  .card-elevated {
+    @apply bg-card rounded-2xl border border-border/60;
+    box-shadow: var(--shadow-card);
+    transition: var(--transition-smooth);
+  }
+  .card-elevated:hover {
+    box-shadow: var(--shadow-lg);
+    transform: translateY(-2px);
+  }
+  .gradient-hero {
+    background: var(--gradient-hero);
+  }
+  .gradient-boost {
+    background: var(--gradient-boost);
+  }
+  .text-gradient {
+    background: var(--gradient-accent);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+}
+
+@layer utilities {
+  .shadow-glow { box-shadow: var(--shadow-glow); }
+  .shadow-soft { box-shadow: var(--shadow-md); }
+  .transition-smooth { transition: var(--transition-smooth); }
+}
